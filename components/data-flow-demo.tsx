@@ -21,6 +21,10 @@ const modes = {
 
 type Mode = keyof typeof modes;
 
+function RightArrow() {
+  return <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 12h16" /><path d="m14 6 6 6-6 6" /></svg>;
+}
+
 export default function DataFlowDemo() {
   const [mode, setMode] = useState<Mode>("streaming");
   const [run, setRun] = useState(0);
@@ -49,7 +53,7 @@ export default function DataFlowDemo() {
           <div className="flow-step"><span>04</span><strong>Serve</strong><small>analytics-ready</small></div>
         </div>
         <div className="lab-stats"><span><b>{activeMode.cadence}</b> cadence</span><span><b>{activeMode.volume}</b> setup</span><span><b>99.9%</b> quality target</span></div>
-        <button className="run-button" onClick={() => setRun((current) => current + 1)}>Run pipeline <span>→</span></button>
+        <button className="run-button" onClick={() => setRun((current) => current + 1)}>Run pipeline <span><RightArrow /></span></button>
       </div>
     </section>
   );
